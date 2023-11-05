@@ -1,0 +1,5 @@
+#ifndef EDITOR_HPP_INCLUDED
+#define EDITOR_HPP_INCLUDED
+
+
+#endif
