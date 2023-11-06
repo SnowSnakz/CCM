@@ -1,7 +1,7 @@
 #ifndef CCM_SHAPE_HPP_INCLUDED
 #define CCM_SHAPE_HPP_INCLUDED
 
-#include "CCM.hpp"
+#include "util.hpp"
 
 // The shape mode controls how shapes are combined with other shapes.
 enum CCMshapemode
@@ -30,7 +30,7 @@ protected:
 
 public:
     // Get the signed distance to the nearest surface at the specified position.
-    virtual double SDF(double x, double y, double z) = 0;
+    virtual CCMfloat SDF(CCMfloat x, CCMfloat y, CCMfloat z) = 0;
 
     // Get the shape mode. 
     CCMshapemode getShapeMode();

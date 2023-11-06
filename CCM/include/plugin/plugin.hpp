@@ -1,15 +1,41 @@
 #ifndef CCM_PLUGIN_HPP_INCLUDED
 #define CCM_PLUGIN_HPP_INCLUDED
 
-#include "CCM.hpp"
+#include "util.hpp"
+#include "uuid.hpp"
+#include "version.hpp"
 
-enum CCMpluginmode
+class CCMplugincontext;
+enum CCMplugintype;
+
+class CCMplugin
 {
-    // The plugin is optional on the specified platform.
-    CCM_OPTIONAL,
+private:
+    CCMstring _name;
+    CCMstring _description;
+    CCMstring _vendor;
+    CCMversion _version;
+    CCMplugintype _pluginType;
+    CCMuuid _uniqueID;
 
-    // The plugin is required on the specified platform.
-    CCM_REQUIRED
+    friend class CCMplugincontext;
+
+protected:
+    CCMplugin(CCMstring name, CCMstring description, CCMstring vendor, CCMversion version, CCMplugintype pluginType);
+
+    // Should return true if the current version of the plugin is compatible with the specified version.
+    virtual bool isCompatible(CCMversion version) = 0;
+
+    // Used to perform plugin setup.
+    virtual void onReady(CCMplugincontext ctx) = 0;
+
+public:
+    CCMstring getName();
+    CCMstring getDescription();
+    CCMstring getVendor();
+    CCMversion getVersion();
+    CCMplugintype getPluginType();
+    CCMuuid getUniqueID();
 };
 
 enum CCMplugintype
@@ -23,21 +49,5 @@ enum CCMplugintype
     // The plugin only affects the runtime.
     CCM_RUNTIME_ONLY
 };
-
-class CCMplugin
-{
-private:
-    icu::UnicodeString _name;
-    icu::UnicodeString _description;
-    icu::UnicodeString _vendor;
-
-    CCMversion _version;
-    CCMplugintype _pluginType;
-
-protected:
-    CCMplugin(icu::UnicodeString name, icu::UnicodeString description, icu::UnicodeString vendor, CCMversion version, CCMplugintype pluginType);
-};
-
-
 
 #endif

@@ -1,16 +1,14 @@
 #ifndef CCM_HPP_INCLUDED
 #define CCM_HPP_INCLUDED
 
-#include <stdint.h>
+#include "util.hpp"
+#include "version.hpp"
+#include "plugin/plugin.hpp"
+#include "plugin/context.hpp"
+#include "shapes/shape.hpp"
 
-// Unicode Strings (icu::UnicodeString)
-#include <unicode/unistr.h>
+CCMversion ccmGetVersion();
 
-struct CCMversion
-{
-    uint8_t major;
-    uint8_t minor;
-    uint8_t build;
-};
+CCMplugincontext ccmCreatePluginContext();
 
 #endif
