@@ -3,17 +3,25 @@
 set(CCM_COMPILE_EDITOR_PROGRAM TRUE CACHE BOOL "Compile the Editor program.")
 
 if(CCM_COMPILE_EDITOR_PROGRAM)
+    if(NOT CCM_COMPILE_STATIC_LIB)
 
-    # Create Editor Executable
-    add_executable(EditorCCM "src/main.cpp")
+        # The Editor requires the static library to be compiled.
+        message(WARNING "Compile target `CCM_editor` requires target `CCM_static`, which is currently disabled.")
+        message(WARNING "(To hide this warning, please either set CCM_COMPILE_EDITOR_PROGRAM to false, or set CCM_COMPILE_STATIC_LIB to true.)")
 
-    # Define the include directory.
-    target_include_directories(EditorCCM PUBLIC "include")
+    else()
 
-    # Link against the CCM library.
-    target_link_libraries(EditorCCM PUBLIC CCM_static)
+        # Create Editor Executable
+        add_executable(CCM_editor "src/main.cpp")
 
-    # Set the CXX_STANDARD to 20.
-    set_property(TARGET EditorCCM PROPERTY CXX_STANDARD 20)
+        # Define the include directory.
+        target_include_directories(CCM_editor PUBLIC "include")
 
+        # Link against the CCM library.
+        target_link_libraries(CCM_editor PUBLIC CCM_static)
+
+        # Set the CXX_STANDARD to 20.
+        set_property(TARGET CCM_editor PROPERTY CXX_STANDARD 20)
+
+    endif()
 endif()
