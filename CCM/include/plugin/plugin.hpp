@@ -6,7 +6,18 @@
 #include "version.hpp"
 
 class CCMplugincontext;
-enum CCMplugintype;
+
+enum CCMplugintype
+{
+    // The plugin affects both the editor and the runtime.
+    CCM_EDITOR_AND_RUNTIME,
+
+    // The plugin only affects the editor.
+    CCM_EDITOR_ONLY,
+
+    // The plugin only affects the runtime.
+    CCM_RUNTIME_ONLY
+};
 
 class CCMplugin
 {
@@ -36,18 +47,6 @@ public:
     CCMversion getVersion();
     CCMplugintype getPluginType();
     CCMuuid getUniqueID();
-};
-
-enum CCMplugintype
-{
-    // The plugin affects both the editor and the runtime.
-    CCM_EDITOR_AND_RUNTIME,
-
-    // The plugin only affects the editor.
-    CCM_EDITOR_ONLY,
-
-    // The plugin only affects the runtime.
-    CCM_RUNTIME_ONLY
 };
 
 #endif

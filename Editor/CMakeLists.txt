@@ -2,6 +2,9 @@
 # Create cache variable for compiling the editor program.
 set(CCM_COMPILE_EDITOR_PROGRAM TRUE CACHE BOOL "Compile the Editor program.")
 
+# Locate GLFW
+find_package(glfw3 3.3.8 REQUIRED)
+
 if(CCM_COMPILE_EDITOR_PROGRAM)
     if(NOT CCM_COMPILE_STATIC_LIB)
 
@@ -12,13 +15,13 @@ if(CCM_COMPILE_EDITOR_PROGRAM)
     else()
 
         # Create Editor Executable
-        add_executable(CCM_editor "src/main.cpp")
+        add_executable(CCM_editor "src/main.cpp" "src/glad.c")
 
         # Define the include directory.
         target_include_directories(CCM_editor PUBLIC "include")
 
         # Link against the CCM library.
-        target_link_libraries(CCM_editor PUBLIC CCM_static)
+        target_link_libraries(CCM_editor PUBLIC CCM_static glfw)
 
         # Set the CXX_STANDARD to 20.
         set_property(TARGET CCM_editor PROPERTY CXX_STANDARD 20)
