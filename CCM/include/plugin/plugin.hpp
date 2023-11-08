@@ -32,7 +32,7 @@ private:
     friend class CCMplugincontext;
 
 protected:
-    CCMplugin(CCMstring name, CCMstring description, CCMstring vendor, CCMversion version, CCMplugintype pluginType);
+    CCMplugin(CCMstring name, CCMstring description, CCMstring vendor, CCMversion version, CCMplugintype pluginType, CCMuuid uniqueID);
 
     // Should return true if the current version of the plugin is compatible with the specified version.
     virtual bool isCompatible(CCMversion version) = 0;

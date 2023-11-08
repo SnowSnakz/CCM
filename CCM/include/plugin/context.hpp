@@ -10,8 +10,6 @@ private:
     uint32_t _internal;
 
 public:
-    bool getPluginStatus(CCMuuid pluginID, CCMversion version, bool isRequired);
-
     void error(CCMstring message, bool fatal);
     void warning(CCMstring message);
     void message(CCMstring message);

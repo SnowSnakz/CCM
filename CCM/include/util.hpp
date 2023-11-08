@@ -12,4 +12,6 @@ typedef float CCMfloat;
 #include <unicode/unistr.h>
 typedef icu::UnicodeString CCMstring;
 
+#define ccmMakeStringUTF8(cstr) icu::UnicodeString::fromUTF8(icu::StringPiece(cstr))
+
 #endif

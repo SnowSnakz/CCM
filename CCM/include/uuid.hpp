@@ -3,7 +3,9 @@
 
 struct CCMuuid
 {
-
+public:
+    // Parse UUID from string.
+    static CCMuuid fromString(const char* str);
 };
 
 #endif

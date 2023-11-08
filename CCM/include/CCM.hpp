@@ -9,6 +9,6 @@
 
 CCMversion ccmGetVersion();
 
-CCMplugincontext ccmCreatePluginContext();
+CCMplugincontext ccmCreatePluginContext(CCMplugintype type);
 
 #endif

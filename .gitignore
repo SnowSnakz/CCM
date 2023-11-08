@@ -2,24 +2,27 @@
 CMakeFiles/
 cmake_install.cmake
 CMakeCache.txt
+install_manifest.txt
+*Config*.cmake
 
 # Generated Build Files
 Makefile
+*.mk
 
 # Build Output (Intermediate)
-*.o
-*.d
-*.obj
+*.o*
+*.d*
+*.obj*
 
 # Build Output (Static Lib)
-*.a
-*.lib
+*.a*
+*.lib*
 
 # Build Output (Shared Lib)
-*.so
-*.dll
-*.dylib
+*.so*
+*.dll*
+*.dylib*
 
 # Build Output (Executable)
-*.out
-*.exe
+*.out*
+*.exe*

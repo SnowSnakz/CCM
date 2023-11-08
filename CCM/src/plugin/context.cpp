@@ -3,7 +3,7 @@
 
 // TODO: Internal Context Setup
 
-CCMplugincontext __ccmi__CreateContext()
+CCMplugincontext __ccmi__CreateContext(CCMplugintype type)
 {
     // TODO: Create Internal Context
 }
