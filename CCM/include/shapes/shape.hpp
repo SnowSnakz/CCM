@@ -19,7 +19,11 @@ enum CCMshapemode
     CCM_MIN,
 
     // The total shape is set to the maximum between the total shape and the current shape.
-    CCM_MAX
+    CCM_MAX,
+
+    CCM_SMOOTH_MIN,
+
+    CCM_SMOOTH_MAX
 };
 
 // An base class for all volumetric shapes.
