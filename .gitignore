@@ -26,3 +26,6 @@ Makefile
 # Build Output (Executable)
 *.out*
 *.exe*
+
+# OSS code
+.vscode

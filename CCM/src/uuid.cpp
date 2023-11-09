@@ -3,7 +3,7 @@
 const char* _CCM_HEX_LOWER = "0123456789abcdef";
 const char* _CCM_HEX_UPPER = "0123456789ABCDEF";
 
-const uint16_t _CCM_UUID_HYPHEN_MASK = 0b0001001001000000;
+const uint16_t _CCM_UUID_HYPHEN_MASK = 584; // 0b0000001001001000
 
 CCMuuid CCMuuid::fromString(const char* str)
 {
@@ -63,15 +63,18 @@ void CCMuuid::toString(char* result, size_t offset, bool hyphenated, bool upperc
     const char* hex = uppercase ? _CCM_HEX_UPPER : _CCM_HEX_LOWER;
     uint16_t hyphenMask = hyphenated ? _CCM_UUID_HYPHEN_MASK : 0;
 
-    int low, high;
+    uint8_t low, high;
     for(int i = 0; i < 16; i++)
     {
+        // Separate byte into low and high nibble.
         high = bytes[i] >> 4;
-        low = bytes[i] & 0b1111;
+        low = bytes[i] & 15; // 0b1111
 
+        // Insert hex characters for byte.
         result[offset++] = hex[high];
         result[offset++] = hex[low];
 
+        // Insert hyphen if string is hyphenated.
         if((hyphenMask >> i) & 1)
             result[offset++] = '-';
     }
