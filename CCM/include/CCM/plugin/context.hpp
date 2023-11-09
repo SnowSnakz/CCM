@@ -1,8 +1,8 @@
 #ifndef CCM_PLUGIN_CONTEXT_HPP_INCLUDED
 #define CCM_PLUGIN_CONTEXT_HPP_INCLUDED
 
-#include "util.hpp"
-#include "uuid.hpp"
+#include "CCM/util.hpp"
+#include "CCM/uuid.hpp"
 
 enum CCMplugintype;
 

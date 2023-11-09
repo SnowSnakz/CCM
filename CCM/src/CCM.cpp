@@ -1,4 +1,4 @@
-#include "CCM.hpp"
+#include "CCM/CCM.hpp"
 
 CCMversion ccmGetVersion()
 {

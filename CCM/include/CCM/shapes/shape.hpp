@@ -1,7 +1,7 @@
 #ifndef CCM_SHAPE_HPP_INCLUDED
 #define CCM_SHAPE_HPP_INCLUDED
 
-#include "util.hpp"
+#include "CCM/util.hpp"
 
 // The shape mode controls how shapes are combined with other shapes.
 enum CCMshapemode

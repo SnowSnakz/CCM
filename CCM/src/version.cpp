@@ -1,4 +1,4 @@
-#include "version.hpp"
+#include "CCM/version.hpp"
 
 bool CCMversion::operator>(const CCMversion& other)
 {

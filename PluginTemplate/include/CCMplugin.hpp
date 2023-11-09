@@ -4,8 +4,8 @@
 #ifndef CCM_PLUGIN_MAIN_HPP
 #define CCM_PLUGIN_MAIN_HPP
 
-#include "plugin/plugin.hpp"
-#include "plugin/context.hpp"
+#include "CCM/plugin/plugin.hpp"
+#include "CCM/plugin/context.hpp"
 
 // Select platform dependent "EXPORT" method 
 #if defined(_MSC_VER)

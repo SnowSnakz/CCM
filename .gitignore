@@ -8,11 +8,19 @@ install_manifest.txt
 # Generated Build Files
 Makefile
 *.mk
+*.sln
+*.suo
+*.vcx*
 
 # Build Output (Intermediate)
 *.o*
 *.d*
+*.pc*
+*.elf*
 *.obj*
+*.ilk*
+*.map*
+*.idb*
 
 # Build Output (Static Lib)
 *.a*
@@ -27,5 +35,9 @@ Makefile
 *.out*
 *.exe*
 
+# Build Output (General)
+*.pdb*
+
 # OSS code
 .vscode
+build/

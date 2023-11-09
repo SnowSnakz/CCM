@@ -18,7 +18,7 @@ find_package(ICU 73.2 COMPONENTS uc i18n REQUIRED)
 add_compile_definitions(CCM_VMAJOR=${CCM_VERSION_MAJOR} CCM_VMINOR=${CCM_VERSION_MINOR} CCM_VBUILD=${CCM_VERSION_BUILD})
 
 # Installs the include folder for devs.
-install(DIRECTORY include/ DESTINATION ${CMAKE_INSTALL_INCLUDEDIR})
+install(DIRECTORY include/ DESTINATION ${CMAKE_INSTALL_INCLUDEDIR}/)
 
 if(CCM_COMPILE_STATIC_LIB)
 
@@ -44,13 +44,13 @@ if(CCM_COMPILE_STATIC_LIB)
     # Set the version of the API.
     set_property(TARGET CCM_static PROPERTY VERSION ${CCM_VERSION})
 
-    # Create install rules.
     install(
         TARGETS CCM_static
         EXPORT CCMTargets
         ARCHIVE DESTINATION ${CMAKE_INSTALL_LIBDIR}
-        )
-
+        LIBRARY DESTINATION ${CMAKE_INSTALL_LIBDIR}
+        RUNTIME DESTINATION ${CMAKE_INSTALL_BINDIR}
+    )
 endif()
 
 if(CCM_COMPILE_SHARED_LIB)
@@ -82,6 +82,8 @@ if(CCM_COMPILE_SHARED_LIB)
         TARGETS CCM_shared
         EXPORT CCMTargets
         ARCHIVE DESTINATION ${CMAKE_INSTALL_LIBDIR}
-        )
+        LIBRARY DESTINATION ${CMAKE_INSTALL_LIBDIR}
+        RUNTIME DESTINATION ${CMAKE_INSTALL_BINDIR}
+    )
 
 endif()

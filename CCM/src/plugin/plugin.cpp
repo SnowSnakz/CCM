@@ -1,4 +1,4 @@
-#include "plugin/plugin.hpp"
+#include "CCM/plugin/plugin.hpp"
 
 CCMplugin::CCMplugin(CCMstring name, CCMstring description, CCMstring vendor, CCMversion version, CCMplugintype pluginType, CCMuuid uniqueID) 
     : _name(name), _description(description), _vendor(vendor), _version(version), _pluginType(pluginType), _uniqueID(uniqueID)

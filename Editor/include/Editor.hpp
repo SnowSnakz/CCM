@@ -6,7 +6,7 @@
 #include "GLFW/glfw3.h"
 
 // For CCM
-#include "CCM.hpp"
+#include "CCM/CCM.hpp"
 
 // For basic IO
 #include <iostream>

@@ -1,4 +1,4 @@
-#include "shapes/shape.hpp"
+#include "CCM/shapes/shape.hpp"
 
 CCMshapemode CCMshape::getShapeMode()
 {

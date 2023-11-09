@@ -1,7 +1,7 @@
-#include "CCM.hpp"
+#include "CCM/CCM.hpp"
 
-#include "plugin/context.hpp"
-#include "plugin/plugin.hpp"
+#include "CCM/plugin/context.hpp"
+#include "CCM/plugin/plugin.hpp"
 
 const size_t _CCM_MAX_PLUGIN_CONTEXTS = 8;
 
