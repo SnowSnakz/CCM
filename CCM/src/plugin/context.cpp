@@ -8,14 +8,14 @@ const size_t _CCM_MAX_PLUGIN_CONTEXTS = 8;
 class CCMIplugincontext
 {
 public:
-    static CCMIplugincontext* contexts[_CCM_MAX_PLUGIN_CONTEXTS];
-
     bool isValid() 
     {
         // TODO: Check if disposed.
         return true;
     }
 };
+
+CCMIplugincontext* contexts[_CCM_MAX_PLUGIN_CONTEXTS];
 
 int current = 0;
 CCMplugincontext __ccmi__CreateContext(CCMplugintype type)
@@ -27,11 +27,11 @@ CCMplugincontext __ccmi__CreateContext(CCMplugintype type)
         for(int i = 0; i < _CCM_MAX_PLUGIN_CONTEXTS; i++)
         {
             // Check if slot was disposed.
-            if(CCMIplugincontext::contexts[i]->isValid())
+            if(contexts[i]->isValid())
                 continue;
 
             // Free the memory for the internal context instance at the free slot.
-            delete CCMIplugincontext::contexts[i];
+            delete contexts[i];
 
             // Reuse disposed context slot.
             return CCMplugincontext(i + 1);
@@ -57,7 +57,7 @@ CCMplugincontext::CCMplugincontext(uint32_t internal)
 
     // Create internal plugin context and assign it.
     CCMIplugincontext* internalContext = new CCMIplugincontext();
-    CCMIplugincontext::contexts[internal - 1] = internalContext;
+    contexts[internal - 1] = internalContext;
 }
 
 bool CCMplugincontext::isValid()
@@ -66,5 +66,5 @@ bool CCMplugincontext::isValid()
         return false;
 
     // TODO: Check if context is disposed.
-    return CCMIplugincontext::contexts[_internal]->isValid();
+    return contexts[_internal]->isValid();
 }
