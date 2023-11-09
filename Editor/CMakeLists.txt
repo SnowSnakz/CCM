@@ -15,7 +15,7 @@ if(CCM_COMPILE_EDITOR_PROGRAM)
     else()
 
         # Create Editor Executable
-        add_executable(CCM_editor "src/main.cpp" "src/glad.c")
+        add_executable(CCM_editor "src/main.cpp" "src/gl.c")
 
         # Define the include directory.
         target_include_directories(CCM_editor PUBLIC "include")

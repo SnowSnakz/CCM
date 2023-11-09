@@ -2,7 +2,7 @@
 #define EDITOR_HPP_INCLUDED
 
 // OpenGL and Windowing
-#include "glad/glad.h"
+#include "glad/gl.h"
 #include "GLFW/glfw3.h"
 
 // For CCM
